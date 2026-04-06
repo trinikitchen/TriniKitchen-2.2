@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trini Kitchen Seafood & Grill - Bold Trinidadian Jerk, BBQ, Rasta Pasta & Fresh Seafood in Queens, NY">
+    <title>TRINI KITCHEN | Seafood & Grill • Queens, NY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Impact:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Impact', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
+        }
+
+        .flame-glow {
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4500;
+        }
+
+        .menu-card {
+            background: #111;
+            border: 3px solid #ff0000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .menu-card:hover {
+            border-color: #fff;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.6);
+        }
+
+        .price-tag {
+            color: #ff0000;
+            font-weight: 700;
+        }
+
+        .tab-active {
+            background-color: #ff0000;
+            color: #fff;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        .wing-card {
+            background: #0a0a0a;
+            border: 3px solid #ff0000;
+            transition: all 0.3s ease;
+        }
+        
+        .wing-card:hover {
+            background: #1a1a1a;
+            border-color: #ffffff;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <!-- NAVBAR - Matching your screenshot style -->
+    <nav class="bg-black border-b-4 border-red-600 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="heading-font text-5xl font-black text-red-600 tracking-tighter flame-glow">TRINI</div>
+                <div class="leading-none">
+                    <div class="text-white text-2xl font-bold">KITCHEN</div>
+                    <div class="text-amber-400 text-xs tracking-widest font-medium">SEAFOOD & GRILL</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="tel:7184808860" class="hidden md:flex items-center bg-zinc-900 hover:bg-zinc-800 px-6 py-3 rounded-2xl text-sm font-medium gap-2 transition">
+                    <i class="fa-solid fa-phone"></i>
+                    (718) 480-8860
+                </a>
+                <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})" 
+                        class="bg-red-600 hover:bg-red-700 px-8 py-3.5 rounded-2xl font-bold flex items-center gap-2 text-sm transition">
+                    ORDER NOW <span class="text-xl">🔥</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="inline-flex items-center gap-3 bg-black/70 px-8 py-3 rounded-3xl border border-red-600">
+                    <span class="text-red-600 text-4xl font-black heading-font">TRINI</span>
+                    <span class="text-white text-xl font-medium">QUEENS • NY</span>
+                </div>
+            </div>
+            
+            <h1 class="heading-font text-8xl md:text-[110px] leading-none font-black tracking-[-6px] flame-glow mb-2">TRINI KITCHEN</h1>
+            <p class="text-4xl text-amber-400 font-medium mb-10">SEAFOOD & GRILL</p>
+
+            <div class="max-w-xl mx-auto text-2xl font-medium leading-tight text-zinc-100">
+                Jerk Chicken • BBQ Pig Tails • Creamy Rasta Pasta • Fresh Snapper & Shrimp<br>
+                <span class="text-red-500">Bringing pure island fire straight to your plate 🔥</span>
+            </div>
+
+            <div class="mt-16 flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#menu" 
+                   class="bg-red-600 hover:bg-white hover:text-black font-bold text-2xl px-14 py-7 rounded-3xl transition-all shadow-2xl">
+                    VIEW FULL MENU
+                </a>
+                <a href="tel:7184808860" 
+                   class="border-4 border-white hover:border-red-600 font-bold text-2xl px-12 py-7 rounded-3xl flex items-center justify-center gap-4 transition-all">
+                    <i class="fa-solid fa-phone text-3xl"></i> CALL NOW
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="py-20 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-7xl font-black tracking-tighter text-white">THE MENU</h2>
+                <p class="text-red-600 text-xl font-medium">Bold flavors. No compromises.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="switchTab(0)" id="tab-0" class="tab-active px-10 py-4 rounded-3xl font-bold text-lg">COMBOS</button>
+                <button onclick="switchTab(1)" id="tab-1" class="px-10 py-4 rounded-3xl font-bold text-lg hover:bg-zinc-900">RASTA PASTA</button>
+                <button onclick="switchTab(3)" id="tab-3" class="px-10 py-4 rounded-3xl font-bold text-lg hover:bg-zinc-900">WINGS ONLY</button>
+            </div>
+
+            <!-- COMBOS TAB -->
+            <div id="content-0" class="tab-panel grid md:grid-cols-3 gap-8">
+                <!-- French Fries Combo -->
+                <div class="menu-card rounded-3xl p-8">
+                    <div class="bg-red-600 text-black py-3 text-center font-bold text-2xl rounded-2xl mb-8">FRENCH FRIES COMBO</div>
+                    <div class="text-amber-400 mb-6 font-medium">Original or Crinkle</div>
+                    <div class="space-y-4 text-lg">
+                        <div class="flex justify-between"><span>Chicken (BBQ or Jerk)</span><span class="price-tag">$12</span></div>
+                        <div class="flex justify-between"><span>Lamb (BBQ or Jerk)</span><span class="price-tag">$18</span></div>
+                        <div class="flex justify-between"><span>Pork Belly (BBQ or Jerk)</span><span class="price-tag">$18</span></div>
+                        <div class="flex justify-between"><span>BBQ Pig Tail</span><span class="price-tag">$18</span></div>
+                        <div class="flex justify-between"><span>Wings (Flavor)</span><span class="price-tag">$15</span></div>
+                        <div class="flex justify-between"><span>Salmon (Grilled)</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Steak (Grilled)</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>Shrimp (Fried)</span><span class="price-tag">$18</span></div>
+                        <div class="flex justify-between"><span>Snapper (Fried)</span><span class="price-tag">$23</span></div>
+                    </div>
+                </div>
+
+                <!-- Full Combo -->
+                <div class="menu-card rounded-3xl p-8">
+                    <div class="bg-red-600 text-black py-3 text-center font-bold text-2xl rounded-2xl mb-8">COMBO W/ 2 SIDES + SALAD</div>
+                    <div class="space-y-4 text-lg">
+                        <div class="flex justify-between"><span>Chicken (BBQ or Jerk)</span><span class="price-tag">$16</span></div>
+                        <div class="flex justify-between"><span>Lamb (BBQ or Jerk)</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>Pork Belly (BBQ or Jerk)</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>BBQ Pig Tail</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>Wings (Flavor)</span><span class="price-tag">$18</span></div>
+                        <div class="flex justify-between"><span>Salmon (Grilled)</span><span class="price-tag">$25</span></div>
+                        <div class="flex justify-between"><span>Steak (Grilled)</span><span class="price-tag">$24</span></div>
+                        <div class="flex justify-between"><span>Shrimp (Fried)</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>Snapper (Fried)</span><span class="price-tag">$26</span></div>
+                    </div>
+                    <div class="mt-10 pt-6 border-t border-zinc-700 text-sm">
+                        <span class="text-red-600 font-bold">PICK 2 SIDES:</span> Fried Rice, Steamed Veggies, Macaroni Pie, Cole Slaw, Macaroni Salad, Mashed Potatoes
+                    </div>
+                </div>
+
+                <!-- Rasta Pasta -->
+                <div class="menu-card rounded-3xl p-8">
+                    <div class="bg-red-600 text-black py-3 text-center font-bold text-2xl rounded-2xl mb-8">RASTA PASTA MEAL</div>
+                    <div class="space-y-4 text-lg">
+                        <div class="flex justify-between"><span>Chicken</span><span class="price-tag">$20</span></div>
+                        <div class="flex justify-between"><span>Lamb</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Pork</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>BBQ Pig Tail</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Wings</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Salmon</span><span class="price-tag">$25</span></div>
+                        <div class="flex justify-between"><span>Steak</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Shrimp</span><span class="price-tag">$22</span></div>
+                        <div class="flex justify-between"><span>Vegetarian</span><span class="price-tag">$16</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WINGS ONLY TAB (Fixed to match your screenshot exactly) -->
+            <div id="content-3" class="tab-panel hidden">
+                <div class="text-center mb-12">
+                    <div class="inline-block bg-red-600 text-black px-10 py-2 rounded-full text-sm font-bold mb-4">WINGS ONLY</div>
+                    <h2 class="heading-font text-6xl font-black tracking-tighter">PURE FIRE</h2>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <div class="wing-card rounded-3xl p-8 text-center">
+                        <div class="text-7xl font-black text-red-600">6pc</div>
+                        <div class="text-zinc-400 mt-1">1 Flavor</div>
+                        <div class="text-4xl font-bold mt-6">$10</div>
+                    </div>
+                    <div class="wing-card rounded-3xl p-8 text-center">
+                        <div class="text-7xl font-black text-red-600">12pc</div>
+                        <div class="text-zinc-400 mt-1">2 Flavors</div>
+                        <div class="text-4xl font-bold mt-6">$18</div>
+                    </div>
+                    <div class="wing-card rounded-3xl p-8 text-center">
+                        <div class="text-7xl font-black text-red-600">18pc</div>
+                        <div class="text-zinc-400 mt-1">3 Flavors</div>
+                        <div class="text-4xl font-bold mt-6">$26</div>
+                    </div>
+                    <div class="wing-card rounded-3xl p-8 text-center">
+                        <div class="text-7xl font-black text-red-600">24pc</div>
+                        <div class="text-zinc-400 mt-1">4 Flavors</div>
+                        <div class="text-4xl font-bold mt-6">$34</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-black border-t-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-6xl font-black mb-6">GET YOUR FIX</h2>
+            <div class="text-3xl mb-8">141-12 Rockaway Blvd, Queens, NY</div>
+            <a href="tel:7184808860" class="inline-flex bg-red-600 text-3xl font-bold px-16 py-8 rounded-3xl items-center gap-6 hover:bg-white hover:text-black transition">
+                <i class="fa-solid fa-phone"></i> (718) 480-8860
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-black py-10 text-center text-xs text-zinc-500 border-t border-zinc-800">
+        © 2026 TRINI KITCHEN SEAFOOD & GRILL • All Rights Reserved<br>
+        141-12 Rockaway Blvd, Queens, NY • Open Wed–Sun 11:30AM–9PM
+    </footer>
+
+    <script>
+        function switchTab(n) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+            const panel = document.getElementById('content-' + n);
+            if (panel) panel.classList.remove('hidden');
+
+            document.querySelectorAll('button[id^="tab-"]').forEach(b => b.classList.remove('tab-active'));
+            const btn = document.getElementById('tab-' + n);
+            if (btn) btn.classList.add('tab-active');
+        }
+
+        window.onload = () => {
+            switchTab(0);
+        };
+    </script>
+</body>
+</html>
